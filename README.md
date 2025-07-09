@@ -1,4 +1,5 @@
-# ipyutk
+# PyAutark
+
 
 ## Installation
 
