@@ -1,0 +1,14 @@
+node_modules
+.venv
+dist
+.DS_Store
+.vscode
+
+package-lock.json
+local_libs
+
+# Python
+__pycache__
+.ipynb_checkpoints
+
+src/ipyutk/static

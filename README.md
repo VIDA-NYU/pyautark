@@ -1,6 +1,12 @@
-# ipyutk
+<h1 align="center">PyAutark</h1>
+
+<div align="center">
+    An interactive, jupyter-friendly Urban Data visualizer based on Autark
+</div>
+
 
 ## Installation
+
 
 ```sh
 pip install ipyutk
