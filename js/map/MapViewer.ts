@@ -1,13 +1,13 @@
 import { FeatureCollection } from 'geojson';
-import { SpatialDb } from 'utkdb';
-import { UtkMap, LayerType } from 'utkmap';
+import { SpatialDb } from 'autk-db';
+import { AutkMap, LayerType } from 'autk-map'
 
 export class MapViewer {
 
-    private map!: UtkMap;
+    private map!: AutkMap;
     private db!: SpatialDb;
 
-    public constructor( db: SpatialDb, map: UtkMap ) {
+    public constructor( db: SpatialDb, map: AutkMap ) {
 
         this.db = db;
         this.map = map;
@@ -53,7 +53,7 @@ export class MapViewer {
     /**
      * Get the map instance
      */
-    public getMap(): UtkMap {
+    public getMap(): AutkMap {
         return this.map;
     }
 

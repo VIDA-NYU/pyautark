@@ -18,7 +18,8 @@ export class LayerManager {
                     'coastline',
                     // 'parks',
                     // 'water',
-                    'roads'
+                    'roads',
+                    'buildings'
                 ] as Array<'surface' | 'coastline' | 'parks' | 'water' | 'roads' | 'buildings'>,
                 dropOsmTable: true,
             },

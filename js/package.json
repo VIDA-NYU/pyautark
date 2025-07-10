@@ -5,9 +5,9 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"utkmap":       "0.0.0",
-		"utkdb":        "0.0.0",
-		"utkplot":      "0.0.0"
+		"autk-map": 		"0.0.0",
+		"autk-db": 			"0.0.0",
+		"autk-plot": 		"0.0.0"
 	},
 	"devDependencies": {
 		"@anywidget/types": "^0.2.0",

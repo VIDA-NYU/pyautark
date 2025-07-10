@@ -2,12 +2,11 @@
 import type { RenderProps } from "@anywidget/types";
 
 // autk imports
-import { SpatialDb } from 'utkdb';
-import { UtkMap, LayerType } from 'utkmap';
+import { AutkMap, LayerType } from 'autk-map';
+import { SpatialDb } from 'autk-db';
 
 // types
 import { OSMLayerData } from "./interfaces";
-import { FeatureCollection } from 'geojson';
 import { MapViewer } from "./map/MapViewer";
 import { MapFactory } from "./map/MapFactory";
 import { LayerManager } from "./map/LayerManager";
@@ -19,57 +18,6 @@ import { LayerManager } from "./map/LayerManager";
 interface WidgetModel {
     osmLayerTraitletInstance: any;
 }
-
-// class GeojsonVis {
-
-    // protected map!: UtkMap;
-    // protected db!: SpatialDb;
-
-    // public async run(geojson: FeatureCollection, canvas: HTMLCanvasElement): Promise<void> {
-
-    //     this.db = new SpatialDb();
-    //     await this.db.init();
-
-    //     await this.db.loadCustomLayer({
-    //         geojsonObject: geojson,
-    //         outputTableName: 'neighborhoods',
-    //         coordinateFormat: 'EPSG:3395'
-    //     });
-
-    //     const boundingBox = await this.db.getBoundingBoxFromLayer('neighborhoods');
-
-    //     if (canvas) {
-
-    //         canvas.width = canvas.height = canvas.parentElement?.clientHeight || 800;
-    //         this.map = new UtkMap(canvas);
-
-    //         await this.map.init(boundingBox);
-    //         await this.loadLayers();
-
-    //         this.map.draw();
-    //     }
-    // }
-
-    // protected async loadLayers(): Promise<void> {
-
-    //     const data: any = [];
-    //     for (const layerData of this.db.tables) {
-
-    //         if (layerData.source === 'csv') {
-    //             continue;
-    //         }
-
-    //         const geojson = await this.db.getLayer(layerData.name);
-    //         data.push({ props: layerData, data: geojson });
-    //     }
-
-    //     for (const json of data) {
-    //         console.log(`Loading layer: ${json.props.name} of type ${json.props.type}`);
-    //         this.map.loadGeoJsonLayer(json.props.name, json.props.type as LayerType, json.data);
-    //     }
-    // }
-// }
-
 
 function render({ model, el }: RenderProps<WidgetModel>) {
 

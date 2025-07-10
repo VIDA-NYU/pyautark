@@ -1,6 +1,6 @@
 {
 	"include": [
-		"js"
+		"."
 	],
 	"compilerOptions": {
 		"target": "ES2020",

@@ -2,8 +2,10 @@ node_modules
 .venv
 dist
 .DS_Store
+.vscode
 
 package-lock.json
+local_libs
 
 # Python
 __pycache__
