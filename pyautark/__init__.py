@@ -5,4 +5,5 @@ try:
 except importlib.metadata.PackageNotFoundError:
     __version__ = "unknown"
 
-from .pyautark import PyAutark, render
+from .pyautark import PyAutark
+from .map import Map

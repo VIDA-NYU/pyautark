@@ -5,9 +5,9 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"autk-map": 		"0.0.0",
-		"autk-db": 			"0.0.0",
-		"autk-plot": 		"0.0.0"
+		"autk-map": 		"file:./local_libs/autk-map-0.0.0.tgz",
+		"autk-db": 			"file:./local_libs/autk-db-0.0.0.tgz",
+		"autk-plot": 		"file:./local_libs/autk-plot-0.0.0.tgz"
 	},
 	"devDependencies": {
 		"@anywidget/types": "^0.2.0",
