@@ -16,7 +16,8 @@ import { LayerManager } from "./map/LayerManager";
 
 /* Specifies attributes defined with traitlets in ../src/ipyutk/__init__.py */
 interface WidgetModel {
-    osmLayerTraitletInstance: any;
+    osmLayerListTraitletInstance: any[];
+	customLayerListTraitletInstance?: any[];
 }
 
 function render({ model, el }: RenderProps<WidgetModel>) {
@@ -28,7 +29,9 @@ function render({ model, el }: RenderProps<WidgetModel>) {
 	const canvas: HTMLCanvasElement = document.createElement("canvas");
 	el.appendChild(canvas);
 
-    const osmLayers: OSMLayerData = model.get("osmLayerTraitletInstance");
+	// getting the layers to be rendered
+    const osmLayers: any = model.get("osmLayerListTraitletInstance") || [];
+	// const customLayers: any = model.get("osmCustomLayers") || [];
 
 	// Use requestAnimationFrame to ensure the element is fully laid out
 	requestAnimationFrame(() => {
@@ -37,13 +40,14 @@ function render({ model, el }: RenderProps<WidgetModel>) {
 		canvas.width = el.clientWidth;
 		canvas.height = Math.min(el.clientWidth, 600);
 
-        MapFactory.create(canvas).then( ( mapViewer: MapViewer ) => {
-            LayerManager.load_osm_layers( mapViewer, osmLayers ).then(async () => {
+        MapFactory.create(canvas).then( async ( mapViewer: MapViewer ) => {
 
-                await mapViewer.init();
-                mapViewer.draw();
+			// loading layers to DB
+			await LayerManager.load_osm_layers( mapViewer, osmLayers );
+			
+			await mapViewer.init();
+			mapViewer.draw();
 
-            });
         });
 	});
     
