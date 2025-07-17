@@ -1,3 +1,4 @@
+import { FeatureCollection } from "geojson";
 import { OSMLayerData } from "../interfaces";
 import { MapViewer } from "./MapViewer";
 
@@ -19,6 +20,9 @@ export class LayerManager {
                 maxLat: osmLayer.boundingBox[3]
             }
 
+            // adding layer to mapViewer
+            mapViewer.addOSMLayer(osmLayer);
+
             return mapViewer.getDatabase().loadOsmFromOverpassApi({
                 boundingBox: boundingBox,
                 outputTableName: `table_osm_${osmLayer.name}`,
@@ -35,8 +39,23 @@ export class LayerManager {
         return;
 
     }
+    public static async load_custom_layers( mapViewer: MapViewer, customLayers: any[] ): Promise<any> {
+     
+        const promises: Promise<any>[] = customLayers.map(async (customLayer: any) => {
 
-    public static async load_custom_layers( mapViewer: MapViewer, customLayers: any[] ): Promise<void> {
-        
+            // adding custom layer to mapViewer
+            mapViewer.addCustomLayer(customLayer);
+
+            return mapViewer.getDatabase().loadCustomLayer({
+                geojsonObject: customLayer.features,
+                outputTableName: customLayer.name,
+                coordinateFormat: 'EPSG:3395',
+                type: 'lines'
+            })
+        })
+
+        await Promise.all(promises);
+        return;
+
     }
 }

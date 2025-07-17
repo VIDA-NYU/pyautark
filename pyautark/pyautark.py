@@ -14,12 +14,12 @@ class PyAutark(anywidget.AnyWidget):
     _esm = pathlib.Path(__file__).parents[1] / "js" / "dist" / "pyautark.js"
     # _css = pathlib.Path(__file__).parents[1] / "js" / "dist" / "pyautark.css"
 
-    ## render parameters
+    ## physical layers
     osmLayerListTraitletInstance = traitlets.List( trait=traitlets.Dict(), default_value=[] ).tag(sync=True)
     customLayerListTraitletInstance = traitlets.List( trait=traitlets.Dict(), default_value=[] ).tag(sync=True)
 
-    # osmLayerTraitletInstance = OSMLayerTraitlet().tag(sync=True)
-    # osmCustomLayers = traitlets.List(default_value=[]).tag(sync=True)
+    ## thematic data
+    thematicDataTraitletInstance = traitlets.List( trait=traitlets.Dict(), default_value=[] ).tag(sync=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
